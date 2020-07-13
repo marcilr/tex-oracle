@@ -1,0 +1,42 @@
+%%
+%%
+%% hyperlinks.tex
+%% Created Fri Sep 20 09:17:47 AKDT 2019
+%% Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Hyperlinks
+%%
+
+%% ======================= Hyperlinks =======================
+%% ======================= Hyperlinks =======================
+\subsection{Hyperlinks}
+\begin{center}
+\framebox{
+\begin{minipage}[t]{0.9\textwidth}
+\cmd{HYPERLINKS} Hyperlinks --- \emph{Sean Weems, Spring 2003}\\
+We should get the \cmd{HYPERLINKS} column searchable via the 
+landrecords application before we do much anything else -- shouldn't
+be too hard.
+\end{minipage}
+}
+\end{center}
+
+\begin{center}
+\framebox{
+\begin{minipage}[t]{0.9\textwidth}
+\emph{Errata: Plats spanning multiple sections}\\
+A few anomalies can be observed in the \cmd{AKPLATS}
+table. Specifically plats exist that span multiple sections. 
+Since the table only has a single column, \cmd{SCODE}, 
+that accepts a single section code, SGU (Status
+Graphics Unit) has handled this problem by entering multiple 
+rows in the table, each with a different section that point to
+the same plat or file. Multiple section plats are indicated by  setting 
+the \cmd{TCODE} column to the value \cmd{37}, and making an 
+appropriate notation like \emph{Section 24-25-26-27} in the 
+\cmd{REMARKS} column.\\
+\FIXME{Perhaps the \cmd{SCODE} column should accept an array of sections?}
+
+\end{minipage}
+}
+\end{center}
