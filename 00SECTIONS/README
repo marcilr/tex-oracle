@@ -23,13 +23,13 @@ abbreviations.tex
 appendix/
   Appendix
 
-body.tex
+body.tex      <=== No longer exists (Mon July 13, 2020)
   Main body
 
 comments.tex
   Comments
 
-configuration.tex
+config.tex
   Configuration
 
 contents.tex
@@ -44,11 +44,14 @@ examples.tex
 figures.tex  
   List of figures
 
-footnotes.tex
+footnotes.tex   <=== No longer exists (Mon July 13, 2020)
   Footnotes
 
 hyperlinks.tex
   Hyperlinks
+
+install.tex
+  Installation of Oracle
 
 introduction.tex
   Introduction
