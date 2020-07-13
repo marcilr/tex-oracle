@@ -67,8 +67,9 @@ examples.tex
   Copied from malachite's:
     ~/svn-ORIG-20151006/docs/latex/latex-examples-OLD/trunk/src/tex/latex-examples.tex
 
+
 links.txt
-  LaTeX related links
+  Oracle Documentation related links
 
 make.bat
   Build PDF from LaTeX source
