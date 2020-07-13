@@ -10,8 +10,8 @@ Updated template for oracle documentation.
 
 Mon Feb  4 12:01:03 AKST 2013
 =============================
-Set subversion property such that that svninfo keywords get expanded in
-myfile.tex file:
+Set subversion property such that that svninfo 
+keywords get expanded in myfile.tex file:
 
 $ svn propset svn:keywords "Id" examples.tex 
 property 'svn:keywords' set on 'examples.tex'
@@ -78,7 +78,8 @@ Makefile
   Standard GNU makefile to build LaTeX document
 
 oracle.txt
-  Oracle database, syntax, and usage LaTex documentation
+  Oracle database, syntax, and usage 
+  LaTex documentation
 
 oracle.pdf
   Oracle database, syntax, and usage portable document format.
