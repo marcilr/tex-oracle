@@ -1,10 +1,89 @@
 README
-Created Mon 13 Jul 2020 10:46:19 AM AKDT
-Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+Created Mon 13 Jul 2020 11:11:37 AM AKDT
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Mon 13 Jul 2020 11:11:37 AM AKDT
+================================
+Updated template for oracle documentation.
+
+
+Mon Feb  4 12:01:03 AKST 2013
+=============================
+Set subversion property such that that svninfo keywords get expanded in
+myfile.tex file:
+
+$ svn propset svn:keywords "Id" examples.tex 
+property 'svn:keywords' set on 'examples.tex'
+$
+
+
+Build Process
+=============
+Traditionally, you converted your LaTeX source file to a DVI file, which could
+then be  converted to PostScript with dvips.  This, in turn, can be converted
+to a PDF file by ps2pdf:
+
+		  latex		    dvips	     ps2pdf
+	text.tex -------> text.dvi -------> text.ps --------> text.pdf
+
+This requires all the graphics to be EPS files. But that's not a major problem,
+as raster graphics can be converted to EPS.  Furthermore, the scalability of
+vector graphics means clean-looking figures at all resolutions.  And vector PS
+is usually very compact.
+
+But what about using photographs, which are usually saved as JPEGs?  This
+really isn't a problem, because the jpeg2ps command (from Debian's jpeg2ps
+package) wraps JPEG images in an EPS header. 
+
+mintaka.sdsu.edu/
+
 
 
 Filelist
 ========
+00SECTIONS/
+  LaTeX document sections.  Thinks this is the best way to
+  create a flexible modular document.
+
+build.xml
+  Ant build.xml to compile LaTeX file crafted by Jason Kattell at
+  DNR LRIS BPU.  He used the ant apply task to make it a bit more
+  abstract.  Cool stuff.
+
+clean.bat
+  Remove dynamically created files from build process.
+  Analogous to 'make clean' target.
+
+cygwin.txt
+  Build notes for LaTeX using cygwin
+
+docs/
+  Documentation
+
+examples.tex
+  Fine LaTeX Examples template.
+  by Raymond E. Marcil June 26, 2006.
+  Copied from malachite's:
+    ~/svn-ORIG-20151006/docs/latex/latex-examples-OLD/trunk/src/tex/latex-examples.tex
+
+links.txt
+  LaTeX related links
+
+make.bat
+  Build PDF from LaTeX source
+
+Makefile
+  Standard GNU makefile to build LaTeX document
+
 oracle.txt
   Oracle database, syntax, and usage LaTex documentation
 
+oracle.pdf
+  Oracle database, syntax, and usage LaTex documentation
+
+template.tex
+  LaTeX Template with Examples
+
+TODO
+  Items for template
