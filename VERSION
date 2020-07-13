@@ -1,0 +1,24 @@
+#!/bin/sh
+# VERSION
+# Created Mon 13 Jul 2020 01:03:39 PM AKDT
+# Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+#
+# AWStats document version
+#
+# To use from cli:
+#   $ . ./VERSION
+#
+# Or from Makefile:
+#   include VERSION
+#
+# Links
+# =====
+# How to source a script in a Makefile?
+# https://stackoverflow.com/questions/7507810/how-to-source-a-script-in-a-makefile
+#
+
+#
+# Mon 13 Jul 2020 01:03:39 PM AKDT
+# o Latest 0.0.1 version (first versioned version
+#
+0.0.1
