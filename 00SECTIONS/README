@@ -66,8 +66,8 @@ run-reports.tex
   Run Reports
 
 sections.tex
-  The main body of the latex document can input sections to
-  nicely modularize the document.
+  The main body of the latex document can input 
+  sections to nicely modularize the document.
 
 scripts.tex
   Scripts
