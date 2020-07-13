@@ -1,0 +1,167 @@
+%% -*- Mode: LaTeX -*-
+%% 
+%% table-examples.tex
+%% Created Fri Jun 14 07:05:10 AKDT 2019
+%% Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Table Examples
+%%
+
+%% ================ Table Examples ================
+%% ================ Table Examples ================
+\subsection{Table Examples}
+\begin{table}[htb]
+\begin{tabular}{|p{.25\textwidth}|p{.20\textwidth}|p{.47\textwidth}|}\hline 
+Column Name&Type&Description\\ 
+\hline
+EQS&VARCHAR2(1)&!NULL map shows village selections\\
+ITM\_COL&VARCHAR2(1)&USGS ITM column: 1-6\\
+ITM\_ROW&VARCHAR2(1)&USGS ITM row: A-E\\
+QMQ\_ABBR\_DNR&VARCHAR2(3)&Three character DNR abbreviation for the QMQ\\
+RASTER\_FILENAME&VARCHAR2(50)&Physical path to file\\
+RASTER\_PATHNAME&VARCHAR2(50)&URL path to PDF of map\\
+SCODE&VARCHAR2(2)&Supplement map code: 1,2,3,...\\
+COMMENTS&VARCHAR2(256)&Plat comments\\
+\hline
+\end{tabular}
+\caption {\cmd{EASEMENTS\_17B} Table}
+\label{table:easements_17b}
+\end{table}
+
+%% A simple table example
+%% The htb attribute attempts to inline the table or figure
+%% where you put it in the document
+\begin{table}[htb]
+\begin{center}
+\begin{tabular*}{\textwidth}{@{}p{.25\textwidth}@{}p{.75\textwidth}}
+\hline
+\hline\\[-2.5ex]
+XML element&Descripton\\
+\hline
+\hline\\[-1.5ex]   %% Trick to add whitespace after horizontal line
+FNUM&US Survey file number\\ 
+MERIDIAN&BLM meridian code\\
+&\hspace{10pt}12 = Copper River\\
+&\hspace{10pt}13 = Fairbanks\\
+&\hspace{10pt}28 = Seward\\
+&\hspace{10pt}44 = Kateel\\
+&\hspace{10pt}45 = Umiat\\
+TOWNSHIP&Five character Township code\\
+RANGE&Five character Range code\\
+PAGE&Survey page number 1,2,3,...\\
+FILENAME&Relative path to file in direcory\\[1.5ex]
+\hline
+\end{tabular*}
+\caption {USS XML index elements}
+\label{table:uss-index}
+\end{center}
+\end{table}
+
+
+%%
+%% NOTE: tabular* takes table width argument
+%%       Use of 'p' for left aligned column.
+%%       Use of 'cp' to center column.
+%%       The @{} works to remove an unwanted space.
+%%
+%% FIXME: Set width of centered columns?
+%%
+%% Links
+%% =====
+%% Getting to Grips with Latex - Tables
+%% by Andrew Roberts
+%% Source for @{\extracolsep{\fill} syntax.
+%% http://www.andy-roberts.net/misc/latex/latextutorial4.html
+%%
+\begin{table}[htb]
+\begin{center}
+\begin{tabular*}{0.90\textwidth}{@{\extracolsep{\fill}}@{}l@{}c@{}c@{}c}
+  \hline
+  \hline\\[-2.5ex]
+  col 1 & col 2 & col 3 & col 4 \\
+  \hline
+  \hline\\[-1.5ex]
+  item 1 & item 2 & item 3 & item 4 \\
+  \hline
+  item 1  & item 2  & item 3  & item 4  \\
+  \hline
+\end{tabular*}
+\caption {Demo}
+\label{table:demo-index}
+\end{center}
+\end{table}
+
+
+%% ================== Installed Daemons ===================
+%% ================== Installed Daemons ===================
+%% The htb attribute attempts to inline the table or figure
+%% where you put it in the document
+%%
+%% NOTE: tabular* takes table width argument
+%%       Use of 'p' for left aligned column.
+%%       Use of 'cp' to center column.
+%%       The @{} works to remove an unwanted space.
+%%
+%% FIXME: The ELM adn Elluminate Server columns are not centering.
+%%        Center with fixed width in LaTeX?
+%%
+%% Links
+%% =====
+%% Getting to Grips with Latex - Tables
+%% by Andrew Roberts
+%% http://www.andy-roberts.net/misc/latex/latextutorial4.html
+%%
+%%
+%% Configure caption on left using caption package.
+%% The key to this working is placing the \captionsetup
+%% just before the table or figure for which to manipulate
+%% the package.
+%%
+%% Other potential potential options include:
+%%   labelsep=newline
+%%   labelfont=bf
+%%
+%% Links
+%% =====
+%% Raggedright and caption package
+%% http://tex.stackexchange.com/questions/120411/raggedright-and-caption-package
+%%
+\captionsetup{%
+    justification=raggedright,
+    singlelinecheck=false
+}
+
+\begin{table}[htb]
+%%\begin{center}
+\begin{tabular*}{.80\textwidth}{@{\extracolsep{\fill}}@{}p{.25\textwidth}@{}c@{}c@{}c@{}c}
+\hline
+\hline\\[-2.5ex]
+Virtual Machine&Apache&ELM&LM&Elluminate Server\\
+\hline
+\hline\\[-1.5ex]   %% Trick to add whitespace after horizontal line
+\cmd{dcs-elive-prod01}&\,&x&x&x\\
+\cmd{uaa-elive-dev01}&x&x&x&\\
+\cmd{uaa-elive-server01}&\,&\,&\,&x\\[1.5ex]
+\cmd{uaa-elive-prod01}&\,&x&x&x\\
+\cmd{uaf-elive-prod01}&\,&x&x&x\\
+\cmd{uas-elive-prod01}&\,&x&x&x\\
+\hline
+\end{tabular*}
+\caption {Daemons}
+\label{table:daemons-index}
+%%\end{center}
+\end{table}
+
+
+\begin{table}[htb]
+\begin{tabular}{|p{.16\textwidth}|p{.17\textwidth}|p{.62\textwidth}|}\hline 
+Column Name&Type&Description\\ 
+\hline
+MTR&VARCHAR2(9)&Meridian, Township, Range, example: \emph{C026S054E}\\
+QMQ&VARCHAR2(3)&Quarter Million Quadrangle code,\\
+&&\hspace{10pt}example: \emph{DIL} (Dillingham quadrangle)\\
+\hline
+\end{tabular}
+\caption {\cmd{XREF\_MTR\_QMQ} Table}
+\label{table:xref_mtr_qmq}
+\end{table}
