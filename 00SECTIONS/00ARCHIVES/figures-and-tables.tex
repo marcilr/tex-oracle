@@ -1,0 +1,42 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% figures-and-tables.tex
+%% Created Fri Oct  4 15:12:27 AKDT 2019
+%% Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Figures and Tables in a LATEX Document
+%%
+
+%% ========================== Install ==============================
+%% ========================== Install ==============================
+\newpage
+\section{Figures and Tables in a LATEX Document}
+
+%%
+%% Figures and Tables in a LATEX Document
+%% RSI 2007 Staff
+%% http://web.mit.edu/rsi/www/pdfs/fig-intro.pdf\
+%%
+%% FIXME: Not build the table I want:
+\begin{center}
+\begin{table}[htbp]
+\begin{tabular}
+\textbf{Variable}, \textbf{Value}, \textbf{Description}, \textbf{Cell 3} \\
+Row 1, Cell 1 \& Row 1, Cell 2 \& Row 1, Cell 3 \\
+Row 2, Cell 1 \& Row 2, Cell 2 \& Row 2, Cell 3 \\
+\end{tabular}
+\end{table}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{ | m{5em} | m{1cm}| m{1cm} | } 
+\hline
+cell1 dummy text dummy text dummy text& cell2 & cell3 \\ 
+\hline
+cell1 dummy text dummy text dummy text & cell5 & cell6 \\ 
+\hline
+cell7 & cell8 & cell9 \\ 
+\hline
+\end{tabular}
+\end{center}
