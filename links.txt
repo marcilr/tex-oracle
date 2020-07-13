@@ -1,0 +1,37 @@
+links.txt
+Created Mon 13 Jul 2020 11:19:44 AM AKDT
+Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Oracle Documentation related links
+
+
+Links
+=====
+[1] Rosendorf, Theodore (2009).  The Typographic Desk Reference. New Castle,
+Delaware: Oak Knoll Press. p. 12. [ISBN] [978-1-58456-231-3.]
+http://en.wikipedia.org/wiki/International_Standard_Book_Number
+http://en.wikipedia.org/wiki/Special:BookSources/978-1-58456-231-3
+
+Cygwin
+Cygwin is a Linux-like environment for Windows.
+http://www.cygwin.com/
+
+LaTeX to PDF
+Nice outline of process and converting various graphics formats.
+http://mintaka.sdsu.edu/GF/bibliog/latex/LaTeXtoPDF.html
+
+Monospaced font
+From Wikipedia, the free encyclopedia
+A monospaced font, also called a fixed-pitch, fixed-width or non-proportional
+font, is a font whose letters and characters each occupy the same amount of
+horizontal space.[1]
+
+LaTeX/Fonts
+http://en.wikibooks.org/wiki/LaTeX/Fonts
+
+Producing White Space in LaTeX
+http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/WhiteSpace.html
+
+The teTeX HOWTO: The Linux-teTeX Local Guide
+http://tldp.org/HOWTO/TeTeX-HOWTO.html
