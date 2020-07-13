@@ -1,0 +1,6 @@
+oracle.txt
+Created Mon 13 Jul 2020 10:43:58 AM AKDT
+Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Oracle database, syntax, and usage LaTex documentation
