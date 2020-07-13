@@ -1,9 +1,9 @@
 #!/bin/sh
 # VERSION
 # Created Mon 13 Jul 2020 01:03:39 PM AKDT
-# Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+# Copyright (C) 2020 by Raymond E. Marcil <raymond.marcil@alaska.gov>
 #
-# AWStats document version
+# Oracle document version
 #
 # To use from cli:
 #   $ . ./VERSION
