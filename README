@@ -81,9 +81,8 @@ oracle.txt
   Oracle database, syntax, and usage LaTex documentation
 
 oracle.pdf
-  Oracle database, syntax, and usage 
-  portable document format file build
-  from LaTeX.
+  Oracle database, syntax, and usage portable document format.
+  Built from LaTeX.
 
 oracle.tex
   Oracle documentation in LaTeX
