@@ -1,0 +1,64 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% process-logs.tex
+%% Created Fri Sep 20 14:20:08 AKDT 2019
+%% Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+
+%% ========================== Process Logs ==============================
+%% ========================== Process Logs ==============================
+\newpage
+\section{Process Logs}
+The awstats logs are processed to update the awstats databases
+under \textbf{DirData}:\\
+\indent\texttt{DirData="/net/dnr-atwfs1/vol/vol1/weblogs/reports/data"}\\
+\\
+The 2018 logs to be processed are available on the network path:\\
+\indent\texttt{/net/dnr-atwfs1/vol/vol1/weblogs/YYYY/MM/DD}\\
+\\
+The internet access are within log files like:\\
+\indent\texttt{/net/dnr-atwfs1/vol/vol1/weblogs/2018/01/01/nginx/access\_log}\\
+\\
+The log files need to be processed on a monthly basis for all of
+2018. This can be broken down by month to:
+\\
+%%
+%% You can add space by inserting @{\hskip whatever} between
+%% the column specifiers, as in
+%%
+%% \begin{tabular}{l@{\hskip 1in}c@{\hskip 0.5in}c}
+%%   One&Two& Three\\
+%%   Four& Five& Six
+%% \end{tabular}
+%%
+%% Adding space between columns in a table
+%% https://tex.stackexchange.com/questions/16519/adding-space-between-columns-in-a-table
+%%
+%% How to center the table in Latex
+%% https://tex.stackexchange.com/questions/162462/how-to-center-the-table-in-latex
+%%
+%% LATEX Table Tricks
+%% Adrian P. Robson
+%% adrian.robson@northumbria.ac.uk
+%% 24th June, 2009
+%% http://www.tex.uniyar.ac.ru/doc/tableTricks.pdf
+%%
+\begin{center}
+\begin{tabular}{l@{\hskip0.5in}l@{\hskip1.5in}l@{\hskip0.5in}l}
+\bf{Month} & \bf{Days} & \bf{Month} & \bf{Days} \\
+January    & 1-31      & July       & 1-31 \\
+February   & 1-28      & August     & 1-31 \\
+March      & 1-31      & September  & 1-30 \\
+April      & 1-30      & October    & 1-31 \\
+May        & 1-31      & November   & 1-30 \\
+June       & 1-30      & December   & 1-31 \\
+\end{tabular}
+\end{center}
+
+%%\noindent\begin{tabular}{ l l l }
+%% cell1 & cell2 & cell3 \\ 
+%% cell4 & cell5 & cell6 \\  
+%% cell7 & cell8 & cell9    
+%%\end{tabular}
+\noindent A script can then be written to loop over all the days 
+of the month to process the individual days.
