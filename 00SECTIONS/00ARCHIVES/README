@@ -1,0 +1,25 @@
+README
+Created Fri Oct  4 11:22:32 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+appendix.tex
+  Prior appendix archived from end of awstats.tex
+
+boxes.tex
+  Boxes
+  Very nice rectangular boxes by Sean Weems, Spring 2003
+
+figures-and-tables.tex
+  Figures and Tables in a LATEX Document
+
+footnotes.tex
+  Deprecated in favor of endnotes.tex
+
+hyperlinks-2.tex
+  Duplicate hyperlinks.tex (just a stub)
+
+table-examples.tex
+  Table examples
