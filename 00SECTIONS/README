@@ -1,21 +1,85 @@
 README
-Created Fri Jun 14 07:31:32 AKDT 2019
+Created Fri May 31 10:29:56 AKDT 2019
 Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+There are 3 steps to begin using AWStats:
+  I. Setup: Installation and configuration
+  II. Process logs: Building/updating statistics database
+  III. Run Reports: Building and reading reports
+
+--AWStats Installation, Configuration and Reporting
+  https://awstats.sourceforge.io
 
 
 Filelist
 ========
+00ARCHIVES/
+  Archives
+
 abbreviations.tex
   List of Abbreviations
+
+appendix/
+  Appendix
+
+body.tex
+  Main body
+
+comments.tex
+  Comments
+
+configuration.tex
+  Configuration
+
+contents.tex
+  Table of contents
+
+endnotes.tex
+  Endnotes
+
+examples.tex
+  Examples
+
+figures.tex  
+  List of figures
+
+footnotes.tex
+  Footnotes
 
 hyperlinks.tex
   Hyperlinks
 
 introduction.tex
-  Introduction for Oracle
+  Introduction
+
+process-logs.tex
+  II. Process Logs
+
+questions.tex
+  Questions
+
+run-reports.tex
+  III. Run Reports
+
+sections.tex
+  The main body of the latex document can input sections to
+  nicely modularize the document.
+
+scripts.tex
+  Scripts
+
+tables.tex
+  List of tables
 
 table-examples.tex
-  Table examples
+  Table exmaples
 
-version-number.tex
+titlepage.tex
+  Title page
+
+verbatim.tex
+  Verbatim text
+
+version.tex
   Version number
