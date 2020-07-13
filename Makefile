@@ -42,6 +42,8 @@ PS2PDF = /usr/bin/ps2pdf
 RM     = /bin/rm
 PS2PDF = /usr/bin/ps2pdf
 RSYNC  = /usr/bin/rsync
+SED    = /bin/sed
+TAIL   = /usr/bin/tail
 TAR    = /bin/tar
 
 # Determine LaTeX document basename dynamically.
@@ -75,7 +77,16 @@ OUT = $(BASENAME).out
 # If not using subversion this will still work but the revision number
 # won't get updated when the document is updated.
 #
-REVISION:=$(shell $(CAT) $(SRC) | $(GREP) "svnInfo " | $(CUT) -d ' ' -f 4)
+#REVISION:=$(shell $(CAT) $(SRC) | $(GREP) "svnInfo " | $(CUT) -d ' ' -f 4)
+
+#
+# Source VERSION variable from VERSION file
+#
+VERSION = $(shell cat ./VERSION | tail -n 1)
+
+#VERSION:=$(shell $(SED) '/^$/d')
+
+#| $(SED) '/#.*/d')
 
 #
 # If REVISION is defined then include in distribution filename.
@@ -88,7 +99,7 @@ endif
 
 
 # Identity non-file targets
-.PHONY: all bz2 clean cycle dvi dist install mostly-clean pdf ps
+.PHONY: all bz2 clean cycle dvi dist install mostly-clean pdf ps test
 
 all: cycle
 
@@ -103,10 +114,17 @@ clean: mostly-clean
 # and files other than bz2 and pdf.
 #
 mostly-clean:
-	$(RM) -f $(LOG) $(LOF) $(AUX) $(TOC) $(DVI) $(PS) 
+	$(RM) -f $(LOG) $(LOF) $(AUX) $(TOC) $(DVI) $(PS)
 	$(RM) -f $(BBL) $(BLG) $(LOT) $(OUT)
 	$(RM) -rf $(BASENAME)
 	$(RM) -f *.aux *.dvi *.lof *.log *.ps *.tmp
+
+#
+# Testing
+# Report VERSION
+#
+test:
+	echo "VERSION: $(VERSION)"
 
 # Wrapper targets for humans
 dvi: ${DVI}
