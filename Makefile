@@ -103,7 +103,10 @@ endif
 
 all: cycle
 
-cycle: clean ${DVI} ${PS} ${PDF}
+printversion:
+	$(info $$VERSION is [${VERSION}])
+
+cycle: clean ${DVI} ${PS} ${PDF} printversion
 
 # Remove temporary files, bz2 files, and pdf
 clean: mostly-clean
@@ -159,7 +162,7 @@ ${PDF}: ${PS}
 # The leading slash in "--exclude /$(BASENAME)" means to exclude from the
 # working directory only so the $(BASENAME) further down in the hierarchy
 # will be included.
-# 
+#
 # How to exclude a folder from rsync
 # http://askubuntu.com/questions/349613/how-to-exclude-a-folder-from-rsync
 #
