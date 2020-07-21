@@ -150,20 +150,20 @@ test:
 	@echo "VERSION: $(VERSION)"
 
 # Wrapper targets for humans
-dvi: ${DVI}
-ps:  ${PS}
-pdf: ${PDF}
+dvi: $(DVI)
+ps:  $(PS)
+pdf: $(PDF)
 bz2: $(BZ2)
 
-${DVI}: ${SRC}
-	$(LATEX) $(SRC)
+${DVI}: $(TMP)
+	$(LATEX) $(TMP)
 
 # Uncomment this entry if there are \citation entries.
 #	$(BIBTEX) $(BASENAME)
 
 # Rerun LaTeX again to get the xrefs right.
-	$(LATEX) $(SRC)
-	$(LATEX) $(SRC)
+	$(LATEX) $(TMP)
+	$(LATEX) $(TMP)
 
 ${PS}: ${DVI}
 # Embed hyperlinks for hyperref package (-z)
