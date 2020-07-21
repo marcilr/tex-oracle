@@ -31,28 +31,44 @@
 # Source for ifeq string comparision syntax
 # http://stackoverflow.com/questions/3728372/string-comparison-inside-makefile
 #
-BIBTEX = /usr/bin/bibtex
-CAT    = /bin/cat
-CUT    = /usr/bin/cut
-DVIPS  = /usr/bin/dvips
-GREP   = /bin/grep
-LATEX  = /usr/bin/latex
-MKDIR  = /bin/mkdir
-PS2PDF = /usr/bin/ps2pdf
-RM     = /bin/rm
-PS2PDF = /usr/bin/ps2pdf
-RSYNC  = /usr/bin/rsync
-SED    = /bin/sed
-TAIL   = /usr/bin/tail
-TAR    = /bin/tar
+
+#
+# Variable definitions
+# Simply expanded variables are defined by lines using ‘:=’ or ‘::=’
+# (see Setting Variables).
+# ...
+# The value of a simply expanded variable is scanned once and for all,
+# expanding any references to other variables and functions, when the
+# variable is defined. 
+# --https://www.gnu.org/software/make/manual/html_node/Setting.html#Setting
+#
+QUIET  := @
+
+BIBTEX := /usr/bin/bibtex
+CAT    := /bin/cat
+CUT    := /usr/bin/cut
+DVIPS  := /usr/bin/dvips
+GAWK   := /usr/bin/gawk
+GREP   := /bin/grep
+LATEX  := /usr/bin/latex
+MKDIR  := /bin/mkdir
+PS2PDF := /usr/bin/ps2pdf
+RM     := /bin/rm
+RSYNC  := /usr/bin/rsync
+SED    := /bin/sed
+TAIL   := /usr/bin/tail
+TAR    := /bin/tar
 
 # Determine LaTeX document basename dynamically.
 # Rather than hardcoding.
-BASENAME = $(shell ls *.tex | sed 's/\.tex//g')
+BASENAME := $(shell ls *.tex | sed 's/\.tex//g')
 # BASENAME = bsdinspect-database
 
+# Build directory
+BUILD = build
 
 SRC = $(BASENAME).tex
+TMP = $(BASENAME).tmp
 BIB = $(BASENAME).bib
 BLG = $(BASENAME).blg
 BBL = $(BASENAME).bbl
@@ -82,7 +98,7 @@ OUT = $(BASENAME).out
 #
 # Source VERSION variable from VERSION file
 #
-VERSION = $(shell cat ./VERSION | tail -n 1)
+VERSION := $(shell cat ./VERSION | tail -n 1)
 
 #VERSION:=$(shell $(SED) '/^$/d')
 
@@ -104,13 +120,46 @@ endif
 all: cycle
 
 printversion:
+	echo "QUUX3 VERSION: ${VERSION}"
 	$(info $$VERSION is [${VERSION}])
 
-cycle: clean ${DVI} ${PS} ${PDF} printversion
+#
+# Update THEVERSION in build/<source file>
+# to VERSION.
+#
+setversion:
+	$(SED) -i "s/THEVERSION/$(VERSION)/g" $(BUILD)/$(SRC)
+
+#
+# Extract line number of line with "VERSION:"
+# $ grep -n VERSION oracle.tex  | sed 's/:.*//g'
+# 240
+#
+#	THELINENUMBER=$(${GREP} -n VERSION: ${BASENAME}.tex | ${SED} 's/:.*//g')
+#	THELINENUMBER=10
+#	echo "QUUX: THELINENUMBER: $$THELINENUMBER"
+#	$(info THELINENUMBER: ${THELINENUMBER})
+#	$(info QUUX: -i "$THELINENUMBERs/THEVERSION/$THEVERSION/g" ${BASENAME}.tex)
+#	$(info THELINE: [${THELINE}])
+#	FOO=`${GREP} -ni VERSION: oracle.tex`
+#	$(info FOO BAR BAZ QUUX)
+#	$(info BASENAME: [${BASENAME}])
+#	$(info VERSION: [${VERSION}])
+#	info(FOO: [${FOO}])
+
+#
+# build
+# Create build directory and copy source to it.
+# 
+build: $(SRC)
+	$(MKDIR) $(BUILD)
+	cp $(SRC) $(BUILD)
+
+cycle: clean build setversion ${DVI} ${PS} ${PDF} printversion
 
 # Remove temporary files, bz2 files, and pdf
 clean: mostly-clean
-	$(RM) -f  *.bz2 $(PDF)
+	$(RM) -f *.bz2 $(PDF)
 
 #
 # Remove temporary files, dist directory,
@@ -121,6 +170,7 @@ mostly-clean:
 	$(RM) -f $(BBL) $(BLG) $(LOT) $(OUT)
 	$(RM) -rf $(BASENAME)
 	$(RM) -f *.aux *.dvi *.lof *.log *.ps *.tmp
+	$(RM) -rf $(BUILD)
 
 #
 # Testing
