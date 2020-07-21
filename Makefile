@@ -131,23 +131,6 @@ setversion:
 	$(SED) -i "s/THEVERSION/$(VERSION)/g" $(BUILD)/$(SRC)
 
 #
-# Extract line number of line with "VERSION:"
-# $ grep -n VERSION oracle.tex  | sed 's/:.*//g'
-# 240
-#
-#	THELINENUMBER=$(${GREP} -n VERSION: ${BASENAME}.tex | ${SED} 's/:.*//g')
-#	THELINENUMBER=10
-#	echo "QUUX: THELINENUMBER: $$THELINENUMBER"
-#	$(info THELINENUMBER: ${THELINENUMBER})
-#	$(info QUUX: -i "$THELINENUMBERs/THEVERSION/$THEVERSION/g" ${BASENAME}.tex)
-#	$(info THELINE: [${THELINE}])
-#	FOO=`${GREP} -ni VERSION: oracle.tex`
-#	$(info FOO BAR BAZ QUUX)
-#	$(info BASENAME: [${BASENAME}])
-#	$(info VERSION: [${VERSION}])
-#	info(FOO: [${FOO}])
-
-#
 # build
 # Create build directory and copy source to it.
 # 
@@ -159,17 +142,30 @@ cycle: clean build setversion ${DVI} ${PS} ${PDF} printversion
 
 # Remove temporary files, bz2 files, and pdf
 clean: mostly-clean
-	$(RM) -f *.bz2 $(PDF)
+	$(RM) -f $(BUILD)/*.bz2 $(PDF)
 
 #
 # Remove temporary files, dist directory,
 # and files other than bz2 and pdf.
 #
 mostly-clean:
-	$(RM) -f $(LOG) $(LOF) $(AUX) $(TOC) $(DVI) $(PS)
-	$(RM) -f $(BBL) $(BLG) $(LOT) $(OUT)
-	$(RM) -rf $(BASENAME)
-	$(RM) -f *.aux *.dvi *.lof *.log *.ps *.tmp
+	$(RM) -f $(BUILD)/$(LOG)
+	$(RM) -f $(BUILD)/$(LOF)
+	$(RM) -f $(BUILD)/$(AUX)
+	$(RM) -f $(BUILD)/$(TOC)
+	$(RM) -f $(BUILD)/$(DVI)
+	$(RM) -f $(BUILD)/$(PS)
+	$(RM) -f $(BUILD)/$(BBL)
+	$(RM) -f $(BUILD)/$(BLG)
+	$(RM) -f $(BUILD)/$(LOT)
+	$(RM) -f $(BUILD)/$(OUT)
+	$(RM) -f $(BUILD)/$(BASENAME)
+	$(RM) -f $(BUILD)/*.aux
+	$(RM) -f $(BUILD)/*.dvi
+	$(RM) -f $(BUILD)/*.lof
+	$(RM) -f $(BUILD)/*.log
+	$(RM) -f $(BUILD)/*.ps
+	$(RM) -f $(BUILD)/*.tmp
 	$(RM) -rf $(BUILD)
 
 #
@@ -186,6 +182,7 @@ pdf: ${PDF}
 bz2: $(BZ2)
 
 ${DVI}: ${SRC}
+	cd $(BUILD)
 	$(LATEX) $(SRC)
 
 # Uncomment this entry if there are \citation entries.
@@ -196,6 +193,7 @@ ${DVI}: ${SRC}
 	$(LATEX) $(SRC)
 
 ${PS}: ${DVI}
+	cd $(BUILD)
 # Embed hyperlinks for hyperref package (-z)
 # Embed type 1 fonts, optimize for pdf (-Ppdf)
 	$(DVIPS) -z -f -Ppdf < $(DVI) > $(PS)
@@ -205,6 +203,7 @@ ${PS}: ${DVI}
 #	$(DVIPS) $(DVI) -o
 
 ${PDF}: ${PS}
+	cd $(BUILD)
 	$(PS2PDF) $(PS)
 
 #
@@ -217,12 +216,14 @@ ${PDF}: ${PS}
 # http://askubuntu.com/questions/349613/how-to-exclude-a-folder-from-rsync
 #
 ${BZ2}: cycle
+	cd $(BUILD)
 	$(MKDIR) $(BASENAME)
 	$(RSYNC) -va --stats --progress * --exclude /$(BASENAME) $(BASENAME)
 	$(TAR) -cvjpf $(BZ2) $(BASENAME)
 
 # Build distribution tarball
 dist: ${BZ2}
+	cd $(BUILD)
 	$(RM) -f $(LOG) $(LOF) $(AUX) $(TOC) $(DVI) $(PS)
 	$(RM) -f $(BBL) $(BLG) $(LOT) $(OUT)
 	$(RM) -rf $(BASENAME)
