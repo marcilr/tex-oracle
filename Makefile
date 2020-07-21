@@ -120,8 +120,7 @@ endif
 all: cycle
 
 printversion:
-	echo "QUUX3 VERSION: ${VERSION}"
-	$(info $$VERSION is [${VERSION}])
+	@echo "VERSION: ${VERSION}"
 
 #
 # Update THEVERSION in build/<source file>
@@ -149,24 +148,12 @@ clean: mostly-clean
 # and files other than bz2 and pdf.
 #
 mostly-clean:
-	$(RM) -f $(BUILD)/$(LOG)
-	$(RM) -f $(BUILD)/$(LOF)
-	$(RM) -f $(BUILD)/$(AUX)
-	$(RM) -f $(BUILD)/$(TOC)
-	$(RM) -f $(BUILD)/$(DVI)
-	$(RM) -f $(BUILD)/$(PS)
-	$(RM) -f $(BUILD)/$(BBL)
-	$(RM) -f $(BUILD)/$(BLG)
-	$(RM) -f $(BUILD)/$(LOT)
-	$(RM) -f $(BUILD)/$(OUT)
-	$(RM) -f $(BUILD)/$(BASENAME)
-	$(RM) -f $(BUILD)/*.aux
-	$(RM) -f $(BUILD)/*.dvi
-	$(RM) -f $(BUILD)/*.lof
-	$(RM) -f $(BUILD)/*.log
-	$(RM) -f $(BUILD)/*.ps
-	$(RM) -f $(BUILD)/*.tmp
-	$(RM) -rf $(BUILD)
+	$(RM) -f $(LOG) $(AUX) $(TOC)
+	$(RM) -f $(DVI) $(PS)  $(BBL)
+	$(RM) -f $(BLG) $(LOT) $(OUT)
+	$(RM) -f $(BASENAME)
+	$(RM) -f *.aux *.dvi *.lof
+	$(RM) -f *.log *.ps *.tmp
 
 #
 # Testing
@@ -182,7 +169,6 @@ pdf: ${PDF}
 bz2: $(BZ2)
 
 ${DVI}: ${SRC}
-	cd $(BUILD)
 	$(LATEX) $(SRC)
 
 # Uncomment this entry if there are \citation entries.
@@ -193,7 +179,6 @@ ${DVI}: ${SRC}
 	$(LATEX) $(SRC)
 
 ${PS}: ${DVI}
-	cd $(BUILD)
 # Embed hyperlinks for hyperref package (-z)
 # Embed type 1 fonts, optimize for pdf (-Ppdf)
 	$(DVIPS) -z -f -Ppdf < $(DVI) > $(PS)
@@ -203,7 +188,6 @@ ${PS}: ${DVI}
 #	$(DVIPS) $(DVI) -o
 
 ${PDF}: ${PS}
-	cd $(BUILD)
 	$(PS2PDF) $(PS)
 
 #
@@ -216,14 +200,12 @@ ${PDF}: ${PS}
 # http://askubuntu.com/questions/349613/how-to-exclude-a-folder-from-rsync
 #
 ${BZ2}: cycle
-	cd $(BUILD)
 	$(MKDIR) $(BASENAME)
 	$(RSYNC) -va --stats --progress * --exclude /$(BASENAME) $(BASENAME)
 	$(TAR) -cvjpf $(BZ2) $(BASENAME)
 
 # Build distribution tarball
 dist: ${BZ2}
-	cd $(BUILD)
 	$(RM) -f $(LOG) $(LOF) $(AUX) $(TOC) $(DVI) $(PS)
 	$(RM) -f $(BBL) $(BLG) $(LOT) $(OUT)
 	$(RM) -rf $(BASENAME)
