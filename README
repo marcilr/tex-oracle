@@ -3,6 +3,14 @@ Created Mon 13 Jul 2020 11:11:37 AM AKDT
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
+Mon 20 Jul 2020 05:55:37 PM AKDT
+================================
+o Version on title page now set from last 
+  line of VERSION file.
+o Updated all curly brackets in *.tex source 
+  to parentheses.
+
+
 Mon 13 Jul 2020 11:11:37 AM AKDT
 ================================
 Updated template for oracle documentation.
