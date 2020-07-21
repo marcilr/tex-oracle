@@ -116,17 +116,15 @@ endif
 
 all: cycle
 
-printversion:
-	@echo "VERSION: ${VERSION}"
-
 #
-# Update THEVERSION in $(BASENAME).tmp file to VERSION.
+# Temporary file is a copy of $(BASENAME).tex
+# with THEVERSION string set to the VERSION.
 #
-setversion:
+$(TMP):
 	cp $(SRC) $(TMP)
 	$(SED) -i "s/THEVERSION/$(VERSION)/g" $(TMP)
 
-cycle: clean setversion $(DVI) $(PS) $(PDF) printversion
+cycle: clean $(TMP) $(DVI) $(PS) $(PDF)
 
 # Remove temporary files, bz2 files, and pdf
 clean: mostly-clean
