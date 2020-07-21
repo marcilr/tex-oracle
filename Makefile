@@ -155,7 +155,7 @@ ps:  $(PS)
 pdf: $(PDF)
 bz2: $(BZ2)
 
-${DVI}: $(TMP)
+$(DVI): $(TMP)
 	$(LATEX) $(TMP)
 
 # Uncomment this entry if there are \citation entries.
@@ -165,7 +165,7 @@ ${DVI}: $(TMP)
 	$(LATEX) $(TMP)
 	$(LATEX) $(TMP)
 
-${PS}: ${DVI}
+$(PS): $(DVI)
 # Embed hyperlinks for hyperref package (-z)
 # Embed type 1 fonts, optimize for pdf (-Ppdf)
 	$(DVIPS) -z -f -Ppdf < $(DVI) > $(PS)
@@ -174,7 +174,7 @@ ${PS}: ${DVI}
 # Embed type 3 (bitmapped) fonts.
 #	$(DVIPS) $(DVI) -o
 
-${PDF}: ${PS}
+$(PDF): $(PS)
 	$(PS2PDF) $(PS)
 
 #
@@ -186,12 +186,12 @@ ${PDF}: ${PS}
 # How to exclude a folder from rsync
 # http://askubuntu.com/questions/349613/how-to-exclude-a-folder-from-rsync
 #
-${BZ2}: cycle
+$(BZ2): cycle
 	$(RSYNC) -va --stats --progress * --exclude /$(BASENAME) $(BASENAME)
 	$(TAR) -cvjpf $(BZ2) $(BASENAME)
 
 # Build distribution tarball
-dist: ${BZ2}
+dist: $(BZ2)
 	$(RM) -f $(LOG) $(LOF) $(AUX) $(TOC) $(DVI) $(PS)
 	$(RM) -f $(BBL) $(BLG) $(LOT) $(OUT)
 	$(RM) -rf $(BASENAME)
