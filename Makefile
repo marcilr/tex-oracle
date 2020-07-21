@@ -64,9 +64,6 @@ TAR    := /bin/tar
 BASENAME := $(shell ls *.tex | sed 's/\.tex//g')
 # BASENAME = bsdinspect-database
 
-# Build directory
-BUILD = build
-
 SRC = $(BASENAME).tex
 TMP = $(BASENAME).tmp
 BIB = $(BASENAME).bib
@@ -123,25 +120,17 @@ printversion:
 	@echo "VERSION: ${VERSION}"
 
 #
-# Update THEVERSION in build/<source file>
-# to VERSION.
+# Update THEVERSION in $(BASENAME).tmp file to VERSION.
 #
 setversion:
-	$(SED) -i "s/THEVERSION/$(VERSION)/g" $(BUILD)/$(SRC)
+	cp $(SRC) $(TMP)
+	$(SED) -i "s/THEVERSION/$(VERSION)/g" $(TMP)
 
-#
-# build
-# Create build directory and copy source to it.
-# 
-build: $(SRC)
-	$(MKDIR) $(BUILD)
-	cp $(SRC) $(BUILD)
-
-cycle: clean build setversion ${DVI} ${PS} ${PDF} printversion
+cycle: clean build setversion $(DVI) $(PS) $(PDF) printversion
 
 # Remove temporary files, bz2 files, and pdf
 clean: mostly-clean
-	$(RM) -f $(BUILD)/*.bz2 $(PDF)
+	$(RM) -f *.bz2 $(PDF)
 
 #
 # Remove temporary files, dist directory,
@@ -200,7 +189,6 @@ ${PDF}: ${PS}
 # http://askubuntu.com/questions/349613/how-to-exclude-a-folder-from-rsync
 #
 ${BZ2}: cycle
-	$(MKDIR) $(BASENAME)
 	$(RSYNC) -va --stats --progress * --exclude /$(BASENAME) $(BASENAME)
 	$(TAR) -cvjpf $(BZ2) $(BASENAME)
 
