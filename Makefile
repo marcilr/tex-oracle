@@ -126,7 +126,7 @@ setversion:
 	cp $(SRC) $(TMP)
 	$(SED) -i "s/THEVERSION/$(VERSION)/g" $(TMP)
 
-cycle: clean build setversion $(DVI) $(PS) $(PDF) printversion
+cycle: clean setversion $(DVI) $(PS) $(PDF) printversion
 
 # Remove temporary files, bz2 files, and pdf
 clean: mostly-clean
