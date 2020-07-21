@@ -149,7 +149,7 @@ mostly-clean:
 # Report VERSION
 #
 test:
-	echo "VERSION: $(VERSION)"
+	@echo "VERSION: $(VERSION)"
 
 # Wrapper targets for humans
 dvi: ${DVI}
