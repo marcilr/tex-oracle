@@ -3,6 +3,23 @@ Created Mon 13 Jul 2020 01:41:30 PM AKDT
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
+
+
++++ Tue 21 Jul 2020 02:58:03 PM AKDT - Items to document:
+o Install oracle 12c
+o Create instance
+o Delete instance
+
+o Create table
+o Delete table
+
+o Create password file
+o Set password
+o Remove password
+
+o Create account
+o Bind account to instance or database
+\
 +++ Mon 13 Jul 2020 01:41:30 PM AKDT - Update document content from AWStats
 to Oracle.
 
