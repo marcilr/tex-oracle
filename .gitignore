@@ -1,0 +1,14 @@
+#.gitignore
+# Created Thu 30 Jul 2020 02:27:13 PM AKDT
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+# Files for git to ignore
+#
+.gitignore
+oracle.aux
+oracle.dvi
+oracle.log
+oracle.out
+oracle.ps
+oracle.tmp
+oracle.toc
