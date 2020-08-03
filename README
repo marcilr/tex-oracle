@@ -3,6 +3,21 @@ Created Mon 13 Jul 2020 11:11:37 AM AKDT
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
+
+Mon 03 Aug 2020 12:59:08 PM AKDT
+================================
+Create outline.txt with:
+
+Title Page
+Table of Contents
+Glossary
+Introduction
+Instances
+Databases
+Users
+Index
+
+
 Mon 20 Jul 2020 05:55:37 PM AKDT
 ================================
 o Version on title page now set from last 
@@ -95,6 +110,10 @@ oracle.pdf
 
 oracle.tex
   Oracle documentation in LaTeX
+
+
+outline.txt
+  Outline
 
 TODO
   Items for Oracle documentation
