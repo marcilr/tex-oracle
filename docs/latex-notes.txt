@@ -1,0 +1,14 @@
+latex-notes.txt
+Created Mon 03 Aug 2020 01:15:27 PM AKDT
+by Raymond E. Marcil <remarcil@alaska.gov>
+
+
+LaTeX notes
+
+
+Mon 03 Aug 2020 01:17:09 PM AKDT
+================================
+Footnote with hyperlink:
+%%\footnote{What is AWStats, \href{https://awstats.sourceforge.io/\#WHAT}{https://awstats.sourceforge.io/\#WHAT}}
+
+Old comment pulled from abstract.
