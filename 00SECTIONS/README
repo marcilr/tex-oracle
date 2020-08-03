@@ -35,6 +35,9 @@ config.tex
 contents.tex
   Table of contents
 
+datafiles.tex
+  Datafiles
+
 endnotes.tex
   Endnotes
 
