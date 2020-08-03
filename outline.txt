@@ -1,0 +1,17 @@
+outline.txt
+Created Mon 03 Aug 2020 12:57:02 PM AKDT
+Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Outline
+
+
+Title Page
+Table of Contents
+Glossary
+Introduction
+Instances
+Databases
+Users
+Index
+
