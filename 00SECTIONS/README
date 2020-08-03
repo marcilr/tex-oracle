@@ -71,6 +71,9 @@ questions.tex
 run-reports.tex
   Run Reports
 
+recover-n-restore.tex
+  Recover and Restore
+
 sections.tex
   The main body of the latex document can input 
   sections to nicely modularize the document.
