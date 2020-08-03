@@ -6,10 +6,20 @@ Copyright (C) 2020 by Raymond E. Marcil <marcilr@gmail.com>
 Outline
 
 
-Title Page
-Table of Contents
-Glossary
-Introduction
+x Title Page
+  oracle.tex:237
+
+x Table of Contents
+  oracle.tex:273
+
+x List of Definitions and Abbreviations
+  oracle.tex:287
+  ===> \input{00SECTIONS/abbreviations.tex}
+
+x Introduction
+  oracle.tex:288
+  ===> \input{00SECTIONS/introduction.tex}  
+
 Instances
 Databases
 Users
