@@ -32,6 +32,9 @@ comments.tex
 config.tex
   Configuration
 
+container_database.tex
+  Container Database
+
 contents.tex
   Table of contents
 
@@ -61,6 +64,9 @@ instances.tex
 
 introduction.tex
   Introduction
+
+pluggable_database.tex
+  Pluggable Database
 
 process-logs.tex
   Process Logs
