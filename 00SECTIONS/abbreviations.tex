@@ -18,6 +18,34 @@
 
 \noindent\begin{itemize*}
 
+%%
+%% ===================== CONTAINER DATABASE ===================
+%% ===================== CONTAINER DATABASE ===================
+%%
+\item{\begin{bf}Container database\end{bf}} - ``Container Database (CDB) : On 
+the surface this seems very similar to a conventional Oracle database, as it 
+contains most of the working parts you will be already familiar with 
+(controlfiles, datafiles, undo, tempfiles, redo logs etc.). It also houses 
+the data dictionary for those objects that are owned by the root container 
+and those that are visible to all PDBs.''\footnote{Multitenant : Overview of Container Databases (CDB) and Pluggable Databases (PDB)\\
+\href{https://oracle-base.com/articles/12c/multitenant-overview-container-database-cdb-12cr1\#create-pdb}{https://oracle-base.com/articles/12c/multitenant-overview-container-database-cdb-12cr1\#create-pdb}}
+
+
+%
+%% ===================== PLUGGABLE DATABASE ===================
+%% ===================== PLUGGABLE DATABASE ===================
+%%
+\item{\begin{bf}Pluggable database\end{bf}} - ``Pluggable Database (PDB) : Since 
+the CDB contains most of the working parts for the database, the PDB only n
+eeds to contain information specific to itself. It does not need to worry about 
+controlfiles, redo logs and undo etc. Instead it is just made up of datafiles 
+and tempfiles to handle it's own objects. This includes it's own data dictionary, 
+containing information about only those objects that are specific to the PDB. 
+From Oracle 12.2 onward a PDB can, and should, have a local undo tablespace.''\footnote{Ibid.}
+
+
+
+
 
 %%
 %% ========================== DATABASE ========================
