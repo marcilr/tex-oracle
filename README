@@ -69,6 +69,10 @@ Filelist
   LaTeX document sections.  Thinks this is the best way to
   create a flexible modular document.
 
+BUILD
+  Build number of document.
+  Started at 0 on Thu 06 Aug 2020 
+
 build.xml
   Ant build.xml to compile LaTeX file crafted by Jason Kattell at
   DNR LRIS BPU.  He used the ant apply task to make it a bit more
