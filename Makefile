@@ -98,8 +98,12 @@ OUT = $(BASENAME).out
 VERSION := $(shell cat ./VERSION | tail -n 1)
 
 #VERSION:=$(shell $(SED) '/^$/d')
-
 #| $(SED) '/#.*/d')
+
+#
+# Get current BUILD number
+#
+BUILD := $(shell cat ./BUILD | tail -n 1)
 
 #
 # If REVISION is defined then include in distribution filename.
