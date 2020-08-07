@@ -27,6 +27,9 @@
 # Beware freaky syntax
 # http://stackoverflow.com/questions/2741708/makefile-contains-string
 #
+# Remove the last line from a file in Bash
+# https://stackoverflow.com/questions/4881930/remove-the-last-line-from-a-file-in-bash
+#
 # String comparison inside makefile
 # Source for ifeq string comparision syntax
 # http://stackoverflow.com/questions/3728372/string-comparison-inside-makefile
@@ -39,7 +42,7 @@
 # ...
 # The value of a simply expanded variable is scanned once and for all,
 # expanding any references to other variables and functions, when the
-# variable is defined. 
+# variable is defined.
 # --https://www.gnu.org/software/make/manual/html_node/Setting.html#Setting
 #
 QUIET  := @
@@ -55,7 +58,7 @@ MKDIR  := /bin/mkdir
 PS2PDF := /usr/bin/ps2pdf
 RM     := /bin/rm
 RSYNC  := /usr/bin/rsync
-SED    := /bin/sed
+SED    := /usr/bin/sed
 TAIL   := /usr/bin/tail
 TAR    := /bin/tar
 
@@ -101,7 +104,7 @@ VERSION := $(shell cat ./VERSION | tail -n 1)
 #| $(SED) '/#.*/d')
 
 #
-# Get current BUILD number
+# Source BUILD variable from BUILD file.
 #
 BUILD := $(shell cat ./BUILD | tail -n 1)
 
@@ -116,7 +119,7 @@ endif
 
 
 # Identity non-file targets
-.PHONY: all bz2 clean cycle dvi dist install mostly-clean pdf ps test
+.PHONY: all buildnumber bz2 clean cycle dvi dist install mostly-clean pdf ps test
 
 all: cycle
 
@@ -124,9 +127,27 @@ all: cycle
 # Temporary file is a copy of $(BASENAME).tex
 # with THEVERSION string set to the VERSION.
 #
+# THE BUILD number is incremented and THEBUILD
+# is set to BUILD in the temporary file.
+#
 $(TMP):
 	cp $(SRC) $(TMP)
+	# Swap VERSION into temporary file
 	$(SED) -i "s/THEVERSION/$(VERSION)/g" $(TMP)
+	# Increment BUILD number
+	$(eval BUILD=$(shell echo $$(($(BUILD)+1))))
+	# Swap BUILD number into temporary file
+	$(SED) -i "s/THEBUILD/$(BUILD)/g" $(TMP)
+	echo "BUILD: $(BUILD)"
+	#
+	# Remove last line of build file
+	# to create new temporary copy.
+	#
+	$(SED) '$$ d' BUILD > BUILD.tmp
+	# Append incremented BUILD number to temporary BUILD file
+	echo $(BUILD) >> BUILD.tmp
+	# Move temporary BUILD file back to original
+	mv BUILD.tmp BUILD
 
 cycle: clean $(TMP) $(DVI) $(PS) $(PDF)
 
@@ -159,6 +180,9 @@ ps:  $(PS)
 pdf: $(PDF)
 bz2: $(BZ2)
 
+#
+# Create DVI from temporary latex file
+#
 $(DVI): $(TMP)
 	$(LATEX) $(TMP)
 
