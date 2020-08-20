@@ -12,8 +12,14 @@ by Raymond E. Marcil <marcilr@gmail.com>
     o Black headers are changed to blue or grey color
     o Loose page breaks
     o Loose page numbers
+    o Loose THEVERSION and THEBUILD since I've been targeting
+      the undated oracloe.tex file.
 
-+++ Thu 06 Aug 2020 03:29:44 PM AKDT - Whilest the BUILD number
+    Pandoc: Markdown to PDF without page numbers
+    Great page definitely a bit more understanding needed of tex to docx.
+    https://tex.stackexchange.com/questions/138651/pandoc-markdown-to-pdf-without-page-numbers
+
++++ Thu 06 Aug 2020 03:29:44 PM AKDT - Whilst the BUILD number
 is being properly calcuated in the Makefile it is not 
 properly written back to the last line of BUILD file.
 
