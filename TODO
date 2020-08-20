@@ -3,6 +3,16 @@ Created Mon 13 Jul 2020 01:41:30 PM AKDT
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
++++ pandoc the general markup converter can be used 
+    to convert the latex file (*.tex) to word documenent (docx):
+
+    $ pandoc oracle.tex -o oracle.docx
+
+    Works well with a few minor issues:
+    o Black headers are changed to blue or grey color
+    o Loose page breaks
+    o Loose page numbers
+
 +++ Thu 06 Aug 2020 03:29:44 PM AKDT - Whilest the BUILD number
 is being properly calcuated in the Makefile it is not 
 properly written back to the last line of BUILD file.
