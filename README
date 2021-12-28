@@ -94,7 +94,6 @@ examples.tex
   Copied from malachite's:
     ~/svn-ORIG-20151006/docs/latex/latex-examples-OLD/trunk/src/tex/latex-examples.tex
 
-
 links.txt
   Oracle Documentation related links
 
@@ -103,6 +102,21 @@ make.bat
 
 Makefile
   Standard GNU makefile to build LaTeX document
+
+oracle.docx
+  Oracle Installation and Usage
+  Raymond E. Marcil
+  <raymond.marcil@alaska.gov>
+
+  Oracle database install, users, grants, priviledges, updates and maintenance.
+  VERSION: THEVERSION
+  build: THEBUILD
+  Alaska Department of Transportation & Public Facilities
+  Statewide Design & Engineering Services
+  820 East 15th Avenue
+  Anchorage, Alaska 99501
+
+  How did I make the docx that opens in LibreOffice?
 
 oracle.txt
   Oracle database, syntax, and usage 
